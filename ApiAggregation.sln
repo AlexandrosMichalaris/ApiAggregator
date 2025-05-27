@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiAggregation.Api", "ApiAggregation.Api\ApiAggregation.Api.csproj", "{0874E32D-D78F-453E-8F24-4FBAA4C80063}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiAggregation.Model", "ApiAggregation.Model\ApiAggregation.Model.csproj", "{02415C48-4C8B-41E9-8AD7-75462A918A8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiAggragation.Infrastructure", "ApiAggragation.Infrastructure\ApiAggragation.Infrastructure.csproj", "{8AD42949-3FCF-4217-AF1C-F3C6B2EA386C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0874E32D-D78F-453E-8F24-4FBAA4C80063}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0874E32D-D78F-453E-8F24-4FBAA4C80063}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0874E32D-D78F-453E-8F24-4FBAA4C80063}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0874E32D-D78F-453E-8F24-4FBAA4C80063}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02415C48-4C8B-41E9-8AD7-75462A918A8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02415C48-4C8B-41E9-8AD7-75462A918A8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02415C48-4C8B-41E9-8AD7-75462A918A8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02415C48-4C8B-41E9-8AD7-75462A918A8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AD42949-3FCF-4217-AF1C-F3C6B2EA386C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AD42949-3FCF-4217-AF1C-F3C6B2EA386C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AD42949-3FCF-4217-AF1C-F3C6B2EA386C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AD42949-3FCF-4217-AF1C-F3C6B2EA386C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
