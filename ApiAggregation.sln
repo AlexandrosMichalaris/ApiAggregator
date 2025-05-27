@@ -4,7 +4,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiAggregation.Api", "ApiAg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiAggregation.Model", "ApiAggregation.Model\ApiAggregation.Model.csproj", "{02415C48-4C8B-41E9-8AD7-75462A918A8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiAggragation.Infrastructure", "ApiAggragation.Infrastructure\ApiAggragation.Infrastructure.csproj", "{8AD42949-3FCF-4217-AF1C-F3C6B2EA386C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiAggregation.Infrastructure", "ApiAggregation.Infrastructure\ApiAggregation.Infrastructure.csproj", "{8AD42949-3FCF-4217-AF1C-F3C6B2EA386C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiAggregation.Application", "ApiAggregation.Application\ApiAggregation.Application.csproj", "{8D4FCB4B-5B4C-4155-AFA1-701DD75EAAE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +26,9 @@ Global
 		{8AD42949-3FCF-4217-AF1C-F3C6B2EA386C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AD42949-3FCF-4217-AF1C-F3C6B2EA386C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AD42949-3FCF-4217-AF1C-F3C6B2EA386C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D4FCB4B-5B4C-4155-AFA1-701DD75EAAE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D4FCB4B-5B4C-4155-AFA1-701DD75EAAE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D4FCB4B-5B4C-4155-AFA1-701DD75EAAE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D4FCB4B-5B4C-4155-AFA1-701DD75EAAE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

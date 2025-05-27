@@ -1,7 +1,11 @@
 using ApiAggregation.Configuration.DI;
 using ApiAggregation.Middleware;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Configure services using the static class method
+builder.Services.ConfigureServices();
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -18,9 +22,6 @@ var app = builder.Build();
 
 app.UseRouting();
 app.MapControllers();
-
-// Configure services using the static class method
-builder.Services.ConfigureServices();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
