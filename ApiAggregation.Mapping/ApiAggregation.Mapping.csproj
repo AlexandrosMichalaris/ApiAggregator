@@ -7,11 +7,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ApiAggregation.Model\ApiAggregation.Model.csproj" />
+      <PackageReference Include="AutoMapper" Version="14.0.0" />
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="AutoMapper" Version="14.0.0" />
+      <ProjectReference Include="..\ApiAggregation.Model\ApiAggregation.Model.csproj" />
     </ItemGroup>
 
 </Project>

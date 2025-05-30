@@ -17,10 +17,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers\" />
-    </ItemGroup>
-
-    <ItemGroup>
+      <ProjectReference Include="..\ApiAggregation.Application\ApiAggregation.Application.csproj" />
+      <ProjectReference Include="..\ApiAggregation.Infrastructure\ApiAggregation.Infrastructure.csproj" />
+      <ProjectReference Include="..\ApiAggregation.Mapping\ApiAggregation.Mapping.csproj" />
       <ProjectReference Include="..\ApiAggregation.Model\ApiAggregation.Model.csproj" />
     </ItemGroup>
 
