@@ -13,18 +13,20 @@ public class ExternalApiServiceStrategy : IExternalApiServiceStrategy
     }
     
     
-    public IExternalApiService<TRequest, TResponse> GetExternalApiService<TRequest, TResponse>(string name) 
+    public Task<IExternalApiService<TRequest, TResponse>> GetExternalApiService<TRequest, TResponse>(string name) 
         where TRequest : class 
         where TResponse : class
     {
+        // Define types
         var typedServices = _externalApiService
             .OfType<IExternalApiService<TRequest, TResponse>>();
         
+        // Get service based on name
         var service = typedServices.SingleOrDefault(s => s.Name == name);
         
         if(service is null)
             throw new ArgumentException($"No external API service with name {name} found.");
         
-        return service;
+        return Task.FromResult(service);
     }
 }

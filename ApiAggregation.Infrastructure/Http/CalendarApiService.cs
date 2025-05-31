@@ -1,6 +1,7 @@
 using System.Net.Http.Json;
 using ApiAggragation.Infrastructure.Configuration;
 using ApiAggregation.Application.Interfaces;
+using ApiAggregation.Model.Constants;
 using ApiAggregation.Model.Dto;
 using ApiAggregation.Model.Dto.Response;
 using ApiAggregation.Model.Request;
@@ -32,8 +33,8 @@ public class CalendarApiService : IExternalApiService<CalendarApiRequest, Calend
 
     #endregion
     
+    public string Name => Constants.CalendarName;
     
-    public string Name => "Calendar";
     public async Task<CalendarDto> FetchAsync(CalendarApiRequest request)
     {
         try

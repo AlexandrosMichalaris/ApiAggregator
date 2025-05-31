@@ -1,6 +1,7 @@
 using System.Net.Http.Json;
 using ApiAggragation.Infrastructure.Configuration;
 using ApiAggregation.Application.Interfaces;
+using ApiAggregation.Model.Constants;
 using ApiAggregation.Model.Dto;
 using ApiAggregation.Model.Dto.Response;
 using ApiAggregation.Model.Request;
@@ -33,7 +34,7 @@ public class NewsApiService : IExternalApiService<NewsApiRequest, NewsArticleDto
 
     #endregion
     
-    public string Name => "News";
+    public string Name => Constants.NewsName;
     public async Task<NewsArticleDto> FetchAsync(NewsApiRequest request)
     {
         try

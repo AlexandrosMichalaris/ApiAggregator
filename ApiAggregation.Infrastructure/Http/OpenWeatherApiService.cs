@@ -1,6 +1,7 @@
 using System.Net.Http.Json;
 using ApiAggragation.Infrastructure.Configuration;
 using ApiAggregation.Application.Interfaces;
+using ApiAggregation.Model.Constants;
 using ApiAggregation.Model.Dto;
 using ApiAggregation.Model.Dto.Response;
 using ApiAggregation.Model.Request;
@@ -17,7 +18,7 @@ public class OpenWeatherApiService : IExternalApiService<OpenWeatherApiRequest, 
     private readonly ILogger<OpenWeatherApiService> _logger;
     private readonly IMapper _mapper;
     
-    public string Name => "OpenWeather";
+    public string Name => Constants.WeatherName;
     
     #region ctor
 

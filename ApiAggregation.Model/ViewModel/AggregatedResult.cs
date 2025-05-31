@@ -9,5 +9,5 @@ public class AggregatedResult
     
     public NewsArticleDto News { get; set; }
     
-    public DateTime Timestamp { get; set; }
+    public DateTimeOffset Timestamp { get; set; }
 }

@@ -1,7 +1,9 @@
 using ApiAggragation.Infrastructure.Decorator;
 using ApiAggragation.Infrastructure.Http;
 using ApiAggregation.Application.Interfaces;
+using ApiAggregation.Application.Service;
 using ApiAggregation.Application.Strategy;
+using ApiAggregation.Interface;
 using ApiAggregation.Mapping;
 using ApiAggregation.Model.Dto;
 using ApiAggregation.Model.Request;
@@ -51,6 +53,8 @@ public static class DiConfiguration
             ));
         
         services.AddSingleton<IExternalApiServiceStrategy, ExternalApiServiceStrategy>();
+        
+        services.AddScoped<IAggregatedApiService, AggregatedApiService>();
         
         
         services.AddHttpClient<OpenWeatherApiService>();
