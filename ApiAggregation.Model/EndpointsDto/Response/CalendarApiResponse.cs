@@ -2,25 +2,20 @@ namespace ApiAggregation.Model.Dto.Response;
 
 public class CalendarApiResponse
 {
-    public List<CalendarData> Data { get; set; }
+    public List<CalendarHolidayApiResponse> Holidays { get; set;  }
 }
 
-public class CalendarData
+public class CalendarHolidayApiResponse
 {
-    public string Date { get; set; }
+    public DateTime Date { get; set; }
     
     public string LocalName { get; set; }
     
     public string Name { get; set; }
     
-    public string CountryCode { get; set; }
+    public bool Fixed  { get; set; }
     
-    public string Fixed  { get; set; }
+    public bool Global  { get; set; }
     
-    public string Global  { get; set; }
-    
-    public string? LaunchYear { get; set; }
-    
-    public IEnumerable<string> types { get; set; }
+    //public List<string> types { get; set; }
 }
-

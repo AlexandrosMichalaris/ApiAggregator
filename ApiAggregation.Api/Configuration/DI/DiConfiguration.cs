@@ -16,9 +16,6 @@ public static class DiConfiguration
     public static void ConfigureServices(this IServiceCollection services)
     {
         // Request services
-        services.AddScoped<IExternalApiService<NewsApiRequest, NewsArticleDto>, NewsApiService>();
-        services.AddScoped<IExternalApiService<CalendarApiRequest, CalendarDto>, CalendarApiService>();
-        
         /**
          * IExternalApiService is stateless
          * IMemoryCache is shared and injected
@@ -26,16 +23,16 @@ public static class DiConfiguration
          */
         
         // New instance per injection
-        services.AddTransient<OpenWeatherApiService>();
+        services.AddTransient<WeatherApiService>();
         services.AddTransient<NewsApiService>();
         services.AddTransient<CalendarApiService>();
 
         // Register caching decorators
-        services.AddTransient<IExternalApiService<OpenWeatherApiRequest, WeatherDto>>(sp =>
-            new ExternalApiServiceCachingDecorator<OpenWeatherApiRequest, WeatherDto>(
-                sp.GetRequiredService<OpenWeatherApiService>(),
+        services.AddTransient<IExternalApiService<WeatherApiRequest, WeatherDto>>(sp =>
+            new ExternalApiServiceCachingDecorator<WeatherApiRequest, WeatherDto>(
+                sp.GetRequiredService<WeatherApiService>(),
                 sp.GetRequiredService<IMemoryCache>(),
-                sp.GetRequiredService<ILogger<ExternalApiServiceCachingDecorator<OpenWeatherApiRequest, WeatherDto>>>()
+                sp.GetRequiredService<ILogger<ExternalApiServiceCachingDecorator<WeatherApiRequest, WeatherDto>>>()
             ));
 
         services.AddTransient<IExternalApiService<NewsApiRequest, NewsArticleDto>>(sp =>
@@ -57,7 +54,7 @@ public static class DiConfiguration
         services.AddScoped<IAggregatedApiService, AggregatedApiService>();
         
         
-        services.AddHttpClient<OpenWeatherApiService>();
+        services.AddHttpClient<WeatherApiService>();
         services.AddHttpClient<CalendarApiService>();
         services.AddHttpClient<NewsApiService>();
         
@@ -67,13 +64,6 @@ public static class DiConfiguration
         services.AddAutoMapper(typeof(NewsMappingProfile));
         
         
-        
-        
-
-        
-        // services.AddAutoMapper(typeof(FileRecordProfile)); // points to any profile in that assembly
-        // services.AddAutoMapper(typeof(JobFileRecordProfile)); // points to any profile in that assembly
-        // services.AddAutoMapper(typeof(LoginAttemptProfile));
-        // services.AddAutoMapper(typeof(TrustedIpProfile));
+        services.AddMemoryCache();
     }
 }

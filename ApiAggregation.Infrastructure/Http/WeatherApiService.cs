@@ -11,21 +11,21 @@ using Microsoft.Extensions.Options;
 
 namespace ApiAggragation.Infrastructure.Http;
 
-public class OpenWeatherApiService : IExternalApiService<OpenWeatherApiRequest, WeatherDto>
+public class WeatherApiService : IExternalApiService<WeatherApiRequest, WeatherDto>
 {
     private readonly HttpClient _httpClient;
     private readonly OpenWeatherSettings _settings;
-    private readonly ILogger<OpenWeatherApiService> _logger;
+    private readonly ILogger<WeatherApiService> _logger;
     private readonly IMapper _mapper;
     
     public string Name => Constants.WeatherName;
     
     #region ctor
 
-    public OpenWeatherApiService(
+    public WeatherApiService(
         HttpClient httpClient, 
         IOptions<OpenWeatherSettings> options,
-        ILogger<OpenWeatherApiService> logger,
+        ILogger<WeatherApiService> logger,
         IMapper mapper)
     {
         _httpClient = httpClient;
@@ -36,7 +36,7 @@ public class OpenWeatherApiService : IExternalApiService<OpenWeatherApiRequest, 
 
     #endregion
 
-    public async Task<WeatherDto> FetchAsync(OpenWeatherApiRequest request)
+    public async Task<WeatherDto> FetchAsync(WeatherApiRequest request)
     {
         try
         {
@@ -51,7 +51,7 @@ public class OpenWeatherApiService : IExternalApiService<OpenWeatherApiRequest, 
                     $"Open-Meteo API returned a non-success status code: {httpResponse.StatusCode}");
             }
 
-            var response = await httpResponse.Content.ReadFromJsonAsync<OpenWeatherApiResponse>();
+            var response = await httpResponse.Content.ReadFromJsonAsync<WeatherApiResponse>();
 
             if (response is null)
             {

@@ -7,6 +7,7 @@ using ApiAggregation.Model.Dto.Response;
 using ApiAggregation.Model.Request;
 using AutoMapper;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace ApiAggragation.Infrastructure.Http;
 
@@ -21,12 +22,12 @@ public class CalendarApiService : IExternalApiService<CalendarApiRequest, Calend
 
     public CalendarApiService(
         HttpClient httpClient,
-        CalendarSettings settings,
+        IOptions<CalendarSettings> options,
         ILogger<CalendarApiService> logger,
         IMapper mapper)
     {
         _httpClient = httpClient;
-        _settings = settings;
+        _settings = options.Value;
         _logger = logger;
         _mapper = mapper;
     }
@@ -50,16 +51,24 @@ public class CalendarApiService : IExternalApiService<CalendarApiRequest, Calend
                     $"Calendar API returned a non-success status code: {httpResponse.StatusCode}");
             }
 
-            var response = await httpResponse.Content.ReadFromJsonAsync<CalendarApiResponse>();
+            //var response = await httpResponse.Content.ReadFromJsonAsync<CalendarApiResponse>();
+            
+            var holidays = await httpResponse.Content.ReadFromJsonAsync<List<CalendarHolidayApiResponse>>();
+            
+            var response = new CalendarApiResponse
+            {
+                Holidays = holidays
+            };
 
             if (response is null)
             {
                 _logger.LogError("Calendar response deserialization returned null.");
                 throw new InvalidOperationException("Failed to deserialize Calendar response.");
             }
-        
-        
-            return _mapper.Map<CalendarDto>(response);
+            
+            var dto = _mapper.Map<CalendarDto>(response);
+            
+            return dto;
         }
         catch (Exception e)
         {

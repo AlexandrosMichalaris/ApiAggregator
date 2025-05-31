@@ -1,31 +1,26 @@
 using ApiAggregation.Application.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace ApiAggregation.Application.Strategy;
 
 public class ExternalApiServiceStrategy : IExternalApiServiceStrategy
 {
-    //TRequest and TResponse are not known at compile time, so we add "object" for the DI.
-    private readonly IEnumerable<object> _externalApiService;
+    private readonly IServiceProvider _serviceProvider;
 
-    public ExternalApiServiceStrategy(IEnumerable<object> externalApiService)
+    public ExternalApiServiceStrategy(IServiceProvider serviceProvider)
     {
-        _externalApiService = externalApiService;
+        _serviceProvider = serviceProvider;
     }
     
     
-    public Task<IExternalApiService<TRequest, TResponse>> GetExternalApiService<TRequest, TResponse>(string name) 
+    public Task<IExternalApiService<TRequest, TResponse>> GetExternalApiService<TRequest, TResponse>() 
         where TRequest : class 
         where TResponse : class
     {
-        // Define types
-        var typedServices = _externalApiService
-            .OfType<IExternalApiService<TRequest, TResponse>>();
-        
-        // Get service based on name
-        var service = typedServices.SingleOrDefault(s => s.Name == name);
+        var service = _serviceProvider.GetService<IExternalApiService<TRequest, TResponse>>();
         
         if(service is null)
-            throw new ArgumentException($"No external API service with name {name} found.");
+            throw new ArgumentException($"No external API service found for {typeof(TRequest).Name} → {typeof(TResponse).Name}");
         
         return Task.FromResult(service);
     }

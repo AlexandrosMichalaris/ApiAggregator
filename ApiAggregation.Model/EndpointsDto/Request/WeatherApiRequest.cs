@@ -1,6 +1,6 @@
 namespace ApiAggregation.Model.Request;
 
-public class OpenWeatherApiRequest
+public class WeatherApiRequest
 {
     public double Latitude { get; set; }
     

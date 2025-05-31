@@ -1,6 +1,6 @@
 namespace ApiAggregation.Model.Dto.Response;
 
-public class OpenWeatherApiResponse
+public class WeatherApiResponse
 {
     public double Latitude { get; set; }
     
@@ -16,29 +16,16 @@ public class OpenWeatherApiResponse
     
     public double Elevation { get; set; }
     
-    public CurrentUnits Current_Units { get; set; }
-    
     public CurrentWeather Current { get; set; }
-}
-
-public class CurrentUnits
-{
-    public string Time { get; set; }
-    
-    public string Interval { get; set; }
-    
-    public string Temperature_2m { get; set; }
-    
-    public string Weather_Code { get; set; }
 }
 
 public class CurrentWeather
 {
-    public string Time { get; set; }
+    public DateTime Time { get; set; }
     
     public int Interval { get; set; }
     
     public double Temperature_2m { get; set; }
     
-    public string Weather_Code { get; set; }
+    public int Weather_Code { get; set; }
 }

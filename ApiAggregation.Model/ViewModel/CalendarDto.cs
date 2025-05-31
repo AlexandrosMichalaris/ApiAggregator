@@ -2,12 +2,12 @@ namespace ApiAggregation.Model.Dto;
 
 public class CalendarDto
 {
-    public IEnumerable<CalendarDataDto> Data { get; set; }
+    public IEnumerable<HolidayData>? Holidays { get; set; }
 }
 
-public class CalendarDataDto
+public class HolidayData
 {
-    public string Fixed  { get; set; }
+    public bool Fixed  { get; set; }
     
     public string LocalName { get; set; }
     
@@ -15,5 +15,5 @@ public class CalendarDataDto
     
     public string Global { get; set; }
     
-    public string Timestamp { get; set; }
+    public DateTime Date { get; set; }
 }

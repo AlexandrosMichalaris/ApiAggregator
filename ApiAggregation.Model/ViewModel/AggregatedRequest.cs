@@ -11,4 +11,10 @@ public class AggregatedRequest
     public double Latitude { get; set; }
     
     public double Longitude { get; set; }
+    
+    public bool? Sort { get; set; }
+    
+    public DateTime? FilterDate { get; set; }
+    
+    public string? CountryArticle { get; set; }
 }

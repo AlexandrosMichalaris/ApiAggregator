@@ -1,8 +1,11 @@
+using System.Text.Json.Serialization;
+
 namespace ApiAggregation.Model.Dto.Response;
 
 public class NewsApiResponse
 {
-    public List<GdeltArticle> Articles { get; set; }
+    [JsonPropertyName("articles")]
+    public List<GdeltArticle>? Articles { get; set; }
 }
 
 public class GdeltArticle
@@ -22,6 +25,4 @@ public class GdeltArticle
     public string Domain { get; set; }
     
     public string Language { get; set; }
-    
-    public DateTime Datetime { get; set; }
 }

@@ -2,7 +2,7 @@ namespace ApiAggregation.Model.Dto;
 
 public class NewsArticleDto
 {
-    public IEnumerable<Article> Articles { get; set; }
+    public IEnumerable<Article>? Articles { get; set; }
 }
 
 public class Article
@@ -15,5 +15,5 @@ public class Article
     
     public string Language { get; set; }
     
-    public DateTime PublishedAt { get; set; }
+    public string Sourcecountry { get; set; }
 }

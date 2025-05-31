@@ -5,9 +5,9 @@ using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.Configure<OpenWeatherSettings>(builder.Configuration.GetSection("ExternalApis:OpenWeather"));
-builder.Services.Configure<NewsSettings>(builder.Configuration.GetSection("ExternalApis:OpenWeather"));
-builder.Services.Configure<CalendarSettings>(builder.Configuration.GetSection("ExternalApis:OpenWeather"));
+builder.Services.Configure<OpenWeatherSettings>(builder.Configuration.GetSection("ApiSettings:OpenWeather"));
+builder.Services.Configure<NewsSettings>(builder.Configuration.GetSection("ApiSettings:NewsArticles"));
+builder.Services.Configure<CalendarSettings>(builder.Configuration.GetSection("ApiSettings:Calendar"));
 
 // Configure services using the static class method
 builder.Services.ConfigureServices();

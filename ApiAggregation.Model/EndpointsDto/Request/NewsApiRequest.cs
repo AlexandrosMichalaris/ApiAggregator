@@ -7,6 +7,11 @@ public class NewsApiRequest
     public string Mode { get; set; } = "artlist";
     
     public string Format { get; set; } = "json";
+    
+    // Filtering value (not sent in the request)
+    public bool? Sort { get; set; }
+    
+    public string? CountryArticle { get; set; }
 
     public string ToQueryString()
     {
