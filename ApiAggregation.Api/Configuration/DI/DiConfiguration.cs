@@ -15,34 +15,27 @@ public static class DiConfiguration
 {
     public static void ConfigureServices(this IServiceCollection services)
     {
-        // Request services
-        /**
-         * IExternalApiService is stateless
-         * IMemoryCache is shared and injected
-         * Transient New instance per injection
-         */
-        
         // New instance per injection
-        services.AddTransient<WeatherApiService>();
-        services.AddTransient<NewsApiService>();
-        services.AddTransient<CalendarApiService>();
+        services.AddScoped<WeatherApiService>();
+        services.AddScoped<NewsApiService>();
+        services.AddScoped<CalendarApiService>();
 
         // Register caching decorators
-        services.AddTransient<IExternalApiService<WeatherApiRequest, WeatherDto>>(sp =>
+        services.AddScoped<IExternalApiService<WeatherApiRequest, WeatherDto>>(sp =>
             new ExternalApiServiceCachingDecorator<WeatherApiRequest, WeatherDto>(
                 sp.GetRequiredService<WeatherApiService>(),
                 sp.GetRequiredService<IMemoryCache>(),
                 sp.GetRequiredService<ILogger<ExternalApiServiceCachingDecorator<WeatherApiRequest, WeatherDto>>>()
             ));
 
-        services.AddTransient<IExternalApiService<NewsApiRequest, NewsArticleDto>>(sp =>
+        services.AddScoped<IExternalApiService<NewsApiRequest, NewsArticleDto>>(sp =>
             new ExternalApiServiceCachingDecorator<NewsApiRequest, NewsArticleDto>(
                 sp.GetRequiredService<NewsApiService>(),
                 sp.GetRequiredService<IMemoryCache>(),
                 sp.GetRequiredService<ILogger<ExternalApiServiceCachingDecorator<NewsApiRequest, NewsArticleDto>>>()
             ));
         
-        services.AddTransient<IExternalApiService<CalendarApiRequest, CalendarDto>>(sp =>
+        services.AddScoped<IExternalApiService<CalendarApiRequest, CalendarDto>>(sp =>
             new ExternalApiServiceCachingDecorator<CalendarApiRequest, CalendarDto>(
                 sp.GetRequiredService<CalendarApiService>(),
                 sp.GetRequiredService<IMemoryCache>(),

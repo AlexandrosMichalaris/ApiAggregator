@@ -1,4 +1,5 @@
 using ApiAggregation.Interface;
+using ApiAggregation.Model.Constants;
 using ApiAggregation.Model.Dto;
 using Microsoft.AspNetCore.Mvc;
 using Model.ApiResponse;
@@ -46,16 +47,16 @@ public class AggregationController : ControllerBase
     private static string? ValidateRequest(AggregatedRequest request)
     {
         if (request.Latitude is < -90 or > 90)
-            return "Latitude must be between -90 and 90.";
+            return Constants.LatitudeErrorMessage;
 
         if (request.Longitude is < -180 or > 180)
-            return "Longitude must be between -180 and 180.";
+            return Constants.LongitudeErrorMessage;
 
         if (request.Year < 1900 || request.Year > DateTime.UtcNow.Year)
-            return "Year is out of valid range.";
+            return Constants.YearErrorMessage;
 
         if (string.IsNullOrWhiteSpace(request.Query) || request.Query.Length < 3)
-            return "Article query must be at least 3 characters long.";
+            return Constants.QueryErrorMessage;
 
         return null;
     }
