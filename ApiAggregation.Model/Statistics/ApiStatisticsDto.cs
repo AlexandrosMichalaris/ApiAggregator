@@ -7,7 +7,7 @@ public class ApiStatisticsDto
     
     public int TotalRequests { get; set; }
     
-    public double AverageResponseTimeMs { get; set; }
+    public double AverageResponseTime { get; set; }
     
-    public string PerformanceCategory { get; set; } = string.Empty;
+    public string PerformanceBucket { get; set; } = string.Empty;
 }

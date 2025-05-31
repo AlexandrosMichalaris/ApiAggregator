@@ -56,32 +56,32 @@ public class AggregatedApiService : IAggregatedApiService
             FilterDate = request.FilterDate,
         };
         
-        var weatherTask = await SafeExecuteAsync<WeatherApiRequest, WeatherDto>(
+        var weatherTask = SafeExecuteAsync<WeatherApiRequest, WeatherDto>(
             () => weatherService.FetchAsync(weatherRequest),
             weatherRequest,
             Constants.WeatherName,
             _cache);
 
-        var newsTask = await SafeExecuteAsync<NewsApiRequest, NewsArticleDto>(
+        var newsTask = SafeExecuteAsync<NewsApiRequest, NewsArticleDto>(
             () => newsService.FetchAsync(newsRequest),
             newsRequest,
             Constants.NewsName,
             _cache);
 
-        var calendarTask = await SafeExecuteAsync<CalendarApiRequest, CalendarDto>(
+        var calendarTask = SafeExecuteAsync<CalendarApiRequest, CalendarDto>(
             () => calendarService.FetchAsync(calendarRequest),
             calendarRequest,
             Constants.CalendarName,
             _cache);
         
-        //await Task.WhenAll(weatherTask, newsTask, calendarTask);
+        await Task.WhenAll(weatherTask, newsTask, calendarTask);
 
         // Apply filtering from helper
         return AggregationHelper.ApplyFilteringAndSorting(new AggregatedResult()
         {
-            Weather = weatherTask,
-            News = newsTask,
-            Calendar = calendarTask,
+            Weather = weatherTask.Result,
+            News = newsTask.Result,
+            Calendar = calendarTask.Result,
             Timestamp = DateTimeOffset.Now
         }, request);
     }
