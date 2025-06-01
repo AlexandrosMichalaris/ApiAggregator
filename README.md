@@ -132,8 +132,8 @@ GET http://localhost:5078/api/statistics
 | Bucket  | Threshold (ms) |
 |---------|----------------|
 | Fast    | < 300          |
-| Average | 300–700        |
-| Slow    | > 700          |
+| Average | 300–500        |
+| Slow    | > 500          |
 
 ---
 ## Fallback Mechanism
