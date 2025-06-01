@@ -9,6 +9,4 @@ public class WeatherDto
     public string Time { get; set; }
     
     public int WeatherCode { get; set; }
-    
-    public bool Success { get; set; } = false;
 }

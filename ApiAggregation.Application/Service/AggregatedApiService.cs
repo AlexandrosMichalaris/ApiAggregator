@@ -121,6 +121,7 @@ public class AggregatedApiService : IAggregatedApiService
                 return cached;
             }
 
+            // TODO: This returns empty object. Not so I deal, it doesn;t know it's wrong data
             _logger.LogWarning($"Returning empty object for {apiName}");
             return new TResponse();
         }

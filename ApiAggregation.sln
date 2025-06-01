@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiAggregation.Application"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiAggregation.Mapping", "ApiAggregation.Mapping\ApiAggregation.Mapping.csproj", "{AA798A23-E33A-4E65-9AE3-2282D5A3D3B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiAggregation.Test", "ApiAggregation.Test\ApiAggregation.Test.csproj", "{F377A27D-3039-4FA4-AB85-F4CB3A93B954}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{AA798A23-E33A-4E65-9AE3-2282D5A3D3B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA798A23-E33A-4E65-9AE3-2282D5A3D3B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA798A23-E33A-4E65-9AE3-2282D5A3D3B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F377A27D-3039-4FA4-AB85-F4CB3A93B954}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F377A27D-3039-4FA4-AB85-F4CB3A93B954}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F377A27D-3039-4FA4-AB85-F4CB3A93B954}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F377A27D-3039-4FA4-AB85-F4CB3A93B954}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
