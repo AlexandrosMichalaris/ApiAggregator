@@ -61,10 +61,6 @@ public class WeatherApiService : IExternalApiService<WeatherApiRequest, WeatherD
 
             return _mapper.Map<WeatherDto>(response);
         }
-        // catch (HttpRequestException ex)
-        // {
-        //     //TODO
-        // }
         catch (Exception e)
         {
             _logger.LogError(e, $"Failed to fetch or process Open-Meteo data. Message: {e.Message}");

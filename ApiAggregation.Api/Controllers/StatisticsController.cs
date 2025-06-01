@@ -20,6 +20,6 @@ public class StatisticsController : ControllerBase
     public IActionResult Get()
     {
         var stats = _statsStore.GetAllStats();
-        return Ok(new ApiResponse<IEnumerable<ApiStatisticsDto>>(stats));
+        return Ok(new ApiResponse<IEnumerable<ApiStatisticsDto>>(stats, "Statistics data fetched successfully."));
     }
 }

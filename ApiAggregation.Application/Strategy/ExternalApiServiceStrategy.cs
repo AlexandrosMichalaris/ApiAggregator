@@ -20,7 +20,7 @@ public class ExternalApiServiceStrategy : IExternalApiServiceStrategy
         var service = _serviceProvider.GetService<IExternalApiService<TRequest, TResponse>>();
         
         if(service is null)
-            throw new ArgumentException($"No external API service found for {typeof(TRequest).Name} → {typeof(TResponse).Name}");
+            throw new ArgumentException($"No external API service found for {typeof(TRequest).Name} => {typeof(TResponse).Name}");
         
         return Task.FromResult(service);
     }
